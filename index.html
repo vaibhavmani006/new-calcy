@@ -383,9 +383,13 @@
       });
       const answer = formatNumber(total);
       if (answer === 'Error') { setError(); return; }
+      expressionEl.replaceChildren();
+      const totalEl = document.createElement('span');
+      totalEl.className = 'number';
+      totalEl.textContent = answer;
+      expressionEl.append(totalEl);
       resultEl.classList.remove('error');
-      resultEl.textContent = answer;
-      displayTokens();
+      resultEl.textContent = '';
       justCalculated = true;
     }
 
@@ -421,3 +425,4 @@
   </script>
 </body>
 </html>
+
